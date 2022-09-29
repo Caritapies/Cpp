@@ -1,0 +1,3 @@
+C:/Users/User/Desktop/Uni/4 Cuarto/estructuras/cmake-build-debug/CMakeFiles/estructuras.dir
+C:/Users/User/Desktop/Uni/4 Cuarto/estructuras/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/Uni/4 Cuarto/estructuras/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+C:/Users/User/Desktop/Uni/4 Cuarto/estructuras/Quiz1/Colas/cmake-build-debug/CMakeFiles/untitled.dir
+C:/Users/User/Desktop/Uni/4 Cuarto/estructuras/Quiz1/Colas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/Uni/4 Cuarto/estructuras/Quiz1/Colas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
