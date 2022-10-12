@@ -29,7 +29,7 @@ void menu(){
     int hospitalAntiguo, hospitalNuevo;
     int codigo;
     string nomb;
-    Nodo *lista = nullptr;
+    Nodo *lista = NULL;
     do{
         cout<<"   Menu  "<<endl;
         cout<<" (1). Ingresar hospital"<<endl;
@@ -95,7 +95,7 @@ void insertarlista(Nodo *&lista,int n , string nomb, int camas){
     Nodo *aux1 = lista;
     Nodo *aux2;
 
-    while((aux1 != nullptr)&& (aux1->codigo<n)){
+    while((aux1 != NULL)&& (aux1->codigo<n)){
         aux2=aux1;
         aux1=aux1->siguiente;
 
@@ -112,9 +112,10 @@ void insertarlista(Nodo *&lista,int n , string nomb, int camas){
 void mostrarlista(Nodo *lista){
     Nodo *actual = new Nodo();
     actual = lista;
-    while(actual !=nullptr){
-
-        cout<<"Codigo:"<<actual->codigo<<". "<<actual->nombre<<" Tiene "<<actual->camasD<<"-"<<actual->camasT<<endl;
+    double porcentaje;
+    while(actual !=NULL){
+        porcentaje=(actual->camasD * 100 )/actual->camasT;
+        cout<<"Codigo:"<<actual->codigo<<". "<<actual->nombre<<" Tiene "<<actual->camasD<<"-"<<actual->camasT<<" porcentaje de cama disponible :"<<porcentaje<<"%"<<endl;
         cout<<"-----------------------------------------------------------"<<endl;
         actual = actual->siguiente;
     }
@@ -122,7 +123,7 @@ void mostrarlista(Nodo *lista){
 void ingresarPaciente(Nodo *lista,int codigo){
     Nodo *aux = new Nodo();
     aux = lista;
-    while(aux!=nullptr && aux->camasD != 0){
+    while(aux!= NULL && aux->camasD != 0){
         if(aux->codigo == codigo){
             cout<<"Se han ingresado al hospital "<<aux->nombre<<" el paciente"<<endl;
             aux->camasD -= 1;
@@ -136,7 +137,7 @@ void porcentajes(Nodo *lista){
     int sumCamD = 0,sumCamT = 0,porCama;
     Nodo *aux = new Nodo();
     aux=lista;
-    while(aux!= nullptr){
+    while(aux!= NULL){
         sumCamD += aux->camasD;
         sumCamT += aux->camasT;
         aux = aux->siguiente;
@@ -156,7 +157,7 @@ void moverPaciente(Nodo *lista,int codigoHospitalAntiguo, int codigoHospitalNuev
 bool sacarPaciente(Nodo *lista,int codigoHospital){
     Nodo *aux = new Nodo();
     aux = lista;
-    while(aux!= nullptr && aux->camasD < aux->camasT){
+    while(aux!= NULL && aux->camasD < aux->camasT){
         if(codigoHospital == aux ->codigo){
             aux->camasD += 1;
             return true;
@@ -165,19 +166,23 @@ bool sacarPaciente(Nodo *lista,int codigoHospital){
     }
     return false;
 }
-void eliminarLista(Nodo *lista,int codigo){
-    Nodo *aux = lista;
-    Nodo *aux2;
 
-    while(aux != nullptr){
-        if(aux->codigo == codigo){
-            delete aux;
+void eliminarLista(Nodo *lista,int codigo) {
+    if (lista != NULL) {
+        Nodo *aux1;
+        Nodo *aux2 = NULL;
+
+        aux1 = lista;
+        while ((aux1 != NULL) && aux1->codigo != codigo) {
+            aux2 = aux1;
+            aux1 = aux1->siguiente;
         }
-        aux = aux->siguiente;
+        if (aux1 == NULL) {
+            cout << "El Codigo del Hospital no se Encontro." << endl;
+        } else {
+            aux2->siguiente = aux1->siguiente;
+            delete aux1;
+        }
+
     }
-
-
-
-
-
 }
